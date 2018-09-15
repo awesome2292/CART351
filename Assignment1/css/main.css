@@ -1,7 +1,33 @@
 
-h2{
-  text-align: center;
+html, html * {
+    padding: 0;
+    margin: auto;
+    box-sizing: border-box;
 }
-h3{
-  text-align: center;
+
+body {
+    background-color: #E1D1D1;
+}
+
+h1 {
+    display: block;
+    text-align: center;
+    font-family: Dosis;
+    color: #000000;
+    font-size: 7.63em;
+    font-weight: 400;
+
+}
+h2 {
+    display: block;
+    text-align: center;
+    font-family: Dosis;
+    color: #000000;
+    font-size: 2.5em;
+    font-weight: 400;
+}
+footer {
+    padding: 0;
+    margin: auto;
+    background-color: #fff;
 }
