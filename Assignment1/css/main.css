@@ -16,9 +16,18 @@ h1 {
     color: #000000;
     font-size: 7.63em;
     font-weight: 400;
-
 }
+
 h2 {
+    display: block;
+    text-align: center;
+    font-family: Dosis;
+    color: #000000;
+    font-size: 4em;
+    font-weight: 400;
+}
+
+h3 {
     display: block;
     text-align: center;
     font-family: Dosis;
@@ -26,8 +35,65 @@ h2 {
     font-size: 2.5em;
     font-weight: 400;
 }
+
+ul {
+    margin: auto;
+    padding: 0;
+    text-align: center;
+    list-style-type: none;
+    font-family: Dosis;
+    color: #000000;
+    font-size: 2.5em;
+    font-weight: 400;
+}
+
+li {
+    display: inline;
+}
+
+li a {
+    padding: 10px 60px;
+    text-decoration: none;
+    color: #000000;
+    display: inline-block;
+  	opacity: 0.6;
+  	transition: 0.3s;
+}
+
+	li a:hover{
+		opacity: 1;
+	}
+
+
 footer {
     padding: 0;
     margin: auto;
     background-color: #fff;
+}
+
+.assignments {
+    margin: auto;
+    font-family: Dosis;
+    padding: 50px 100px 50px 100px;
+    text-align: center;
+    line-height: 1.5;
+    font-size: 1.2em;
+}
+
+.projects {
+    margin: auto;
+    font-family: Dosis;
+    padding: 50px 100px 50px 100px;
+    text-align: center;
+    line-height: 1.5;
+    font-size: 1.2em;
+}
+
+.reflections {
+    margin: auto;
+    font-family: Dosis;
+    padding: 50px 100px 50px 100px;
+    text-align: center;
+    line-height: 1.5;
+    font-size: 1.2em;
 }
