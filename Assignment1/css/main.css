@@ -32,7 +32,7 @@ h3 {
     text-align: center;
     font-family: Dosis;
     color: #000000;
-    font-size: 2.5em;
+    font-size: 1.5em;
     font-weight: 400;
 }
 
@@ -96,4 +96,38 @@ footer {
     text-align: center;
     line-height: 1.5;
     font-size: 1.2em;
+}
+
+.presentation {
+    margin: auto;
+    font-family: Dosis;
+    padding: 50px 100px 50px 100px;
+    text-align: center;
+    line-height: 1.5;
+    font-size: 1.2em;
+}
+
+.row > .column {
+    padding: 0 0px;
+}
+.row:after {
+    content: "";
+    display: table;
+    clear: both;
+}
+
+/* Create equal columns that float next to each other */
+.column {
+    display: inline-block;
+    float: center;
+    width: 33%;
+}
+
+
+img.hover-shadow {
+    transition: 0.3s;
+}
+.hover-shadow:hover {
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+	cursor: pointer;
 }
