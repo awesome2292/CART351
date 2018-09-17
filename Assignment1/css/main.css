@@ -65,11 +65,13 @@ ul {
     font-size: 2em;
     font-weight: 400;
 }
+
 li {
     display: inline;
 }
+
 li a {
-    padding: 10px 45px;
+    padding: 10px 30px;
     text-decoration: none;
     color: #000000;
     display: inline-block;
@@ -95,6 +97,7 @@ footer {
     padding: 0;
     margin: auto;
     background-color: #fff;
+    z-index: 10;
 }
 
 .sticky {
@@ -157,18 +160,33 @@ footer {
     width: 33%;
 }
 
-img {
-  display: block;
-  margin-top: 25px;
-  margin-bottom: 25px;
-  margin-left: auto;
-  margin-right: auto;
-}
-
 img.hover-shadow {
     transition: 0.3s;
 }
 .hover-shadow:hover {
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 	cursor: pointer;
+}
+
+/*scrollbar*/
+/* width */
+::-webkit-scrollbar {
+    width: 10px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+    background: rgba(255, 255, 255, 0.1);
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+    background: rgba(255, 255, 255, 0.1);
+	border-radius: 10px;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+    background: #6C6C6C;
+	border-radius: 10px;
 }
