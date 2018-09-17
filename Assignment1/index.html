@@ -1,75 +1,96 @@
 <!DOCTYPE html>
 <html>
+<!-- This is the code for CART 351 Deliverable website. Going for a minimalist, yet sleek style, with subtle transitions and straightforward interface. -->
+
 <head>
   <title>Main</title>
   <link rel="stylesheet" type="text/css" href="css/main.css">
 </head>
+
 <body>
-    <!-- the header div -->
+  <!-- the header div -->
   <header>
-      <h2>YASMINE ROY</h2>
-    </header>
+    <h2>YASMINE ROY</h2>
+  </header>
 
-    <h1 class="h1title"><span style="background-color: #FFFFFF">CART 351</span></h1>
-    <h2 class="h2title">PROJECTS AND ASSIGNMENTS</h2>
+  <!-- the main title of the site before the navigation bar, not included in the header -->
+  <h1 class="h1title"><span style="background-color: #FFFFFF">CART 351</span></h1>
+  <h2 class="h2title">PROJECTS AND ASSIGNMENTS</h2>
 
-    <footer class="sticky">
-      <ul id="myTopnav">
-        <li><a href="#top" class="regular">HOME</a></li>
-        <li><a href="#assignments" class="regular">ASSIGNMENTS</a></li>
-        <li><a href="#projects" class="regular">PROJECTS</a></li>
-        <li><a href="#reflections" class="regular">REFLECTIONS</a></li>
-        <li><a href="#presentation" class="regular">PRESENTATION</a></li>
-        <li><a href="https://github.com/awesome2292/CART351" target="_blank">GITHUB 351</a></li>
-      </ul>
-    </footer>
-  <!-- the main div -->
+  <!-- the footer that serves as a sticky nav bar, it follows the user as they scroll down the page -->
+  <footer class="sticky">
+    <ul>
+      <li><a href="#top" class="regular">HOME</a></li>
+      <li><a href="#assignments" class="regular">ASSIGNMENTS</a></li>
+      <li><a href="#projects" class="regular">PROJECTS</a></li>
+      <li><a href="#reflections" class="regular">REFLECTIONS</a></li>
+      <li><a href="#presentation" class="regular">PRESENTATION</a></li>
+      <li><a href="https://github.com/awesome2292/CART351" target="_blank">GITHUB 351</a></li>
+    </ul>
+  </footer>
+
+  <!-- the assignment section -->
   <a name="assignments"></a>
   <section class="assignments">
-      <br>
+    <br> <!-- this break is used to separate the title from the nav bar, and is used in other sections as well -->
     <h2><span style="background-color: #FFFFFF">ASSIGNMENTS</span></h2>
     <br>
+    <!-- there is one row of two columns, each column taking about 1/3 of the page's width -->
     <div class="row">
-    <div class="column"><h3> ASSIGNMENT 2 </h3> <img src="images/blank_assignment_thumb.png" width="100%" alt="" class="hover-shadow"> <p> GitHub Repository <a href="#" class="github"> Assignment 2. </a></p> </div>
-    <div class="column"> <h3> ASSIGNMENT 3 </h3><img src="images/blank_assignment_thumb.png" width="100%" alt="" class="hover-shadow"> <p> GitHub Repository <a href="#" class="github"> Assignment 3. </a></p> </div>
+      <div class="column"><h3> ASSIGNMENT 2 </h3> <img src="images/blank_assignment_thumb.png" width="100%" alt="" class="hover-shadow">
+        <p> GitHub Repository <a href="#" class="github"> Assignment 2. </a></p>
+      </div>
+      <div class="column"> <h3> ASSIGNMENT 3 </h3><img src="images/blank_assignment_thumb.png" width="100%" alt="" class="hover-shadow">
+        <p> GitHub Repository <a href="#" class="github"> Assignment 3. </a></p>
+      </div>
     </div>
-
   </section>
 
+  <!-- the project section -->
   <a name="projects"></a>
   <section class="projects">
     <br>
     <h2><span style="background-color: #FFFFFF">PROJECTS</span></h2>
     <br>
+    <!-- there is one row of three columns, each column taking about 1/3 of the page's width -->
     <div class="row">
-    <div class="column"> <h3>PROPOSAL</h3> <img src="images/blank_project_thumb.png" width="100%" alt="" onclick="" class="hover-shadow"> <p> GitHub Repository <a href="#" class="github"> Proposal. </a></p></div>
-    <div class="column"> <h3>PROTOTYPE</h3> <img src="images/blank_project_thumb.png" width="100%" alt="" onclick="" class="hover-shadow"> <p> GitHub Repository <a href="#" class="github"> Prototype. </a></p></div>
-    <div class="column"> <h3>FINAL</h3> <img src="images/blank_project_thumb.png" width="100%" alt="" onclick="" class="hover-shadow"> <p> GitHub Repository <a href="#" class="github"> Project Final. </a></p></div>
+      <div class="column"> <h3>PROPOSAL</h3> <img src="images/blank_project_thumb.png" width="100%" alt="" onclick="" class="hover-shadow">
+        <p> GitHub Repository <a href="#" class="github"> Proposal. </a></p>
+      </div>
+      <div class="column"> <h3>PROTOTYPE</h3> <img src="images/blank_project_thumb.png" width="100%" alt="" onclick="" class="hover-shadow">
+        <p> GitHub Repository <a href="#" class="github"> Prototype. </a></p>
+      </div>
+      <div class="column"> <h3>FINAL</h3> <img src="images/blank_project_thumb.png" width="100%" alt="" onclick="" class="hover-shadow">
+        <p> GitHub Repository <a href="#" class="github"> Project Final. </a></p>
+      </div>
     </div>
-</section>
+  </section>
 
-<a name="reflections"></a>
-<section class="reflections">
-  <br>
-  <h2><span style="background-color: #FFFFFF">REFLECTIONS</span></h2>
-  <br>
-  <div class="row">
-  <div class="column"> <h3>REFLECTION 1</h3> <img src="images/blank_reflection_thumb.png" width="100%" alt="" onclick="" class="hover-shadow"> </div>
-  <div class="column"> <h3>REFLECTION 2</h3> <img src="images/blank_reflection_thumb.png" width="100%" alt="" onclick="" class="hover-shadow"> </div>
-  <div class="column"> <h3>REFLECTION 3</h3> <img src="images/blank_reflection_thumb.png" width="100%" alt="" onclick="" class="hover-shadow"> </div>
-  <div class="column"> <h3>REFLECTION 4</h3> <img src="images/blank_reflection_thumb.png" width="100%" alt="" onclick="" class="hover-shadow"> </div>
-  </div>
-</section>
+  <!-- the reflections section -->
+  <a name="reflections"></a>
+  <section class="reflections">
+    <br>
+    <h2><span style="background-color: #FFFFFF">REFLECTIONS</span></h2>
+    <br>
+    <!-- there is one row of four columns, each column taking about 1/3 of the page's width -->
+    <!-- however, since the page can't fit all four of them, the last column goes below the rest -->
+    <div class="row">
+      <div class="column"> <h3>REFLECTION 1</h3> <img src="images/blank_reflection_thumb.png" width="100%" alt="" onclick="" class="hover-shadow"> </div>
+        <div class="column"> <h3>REFLECTION 2</h3> <img src="images/blank_reflection_thumb.png" width="100%" alt="" onclick="" class="hover-shadow"> </div>
+          <div class="column"> <h3>REFLECTION 3</h3> <img src="images/blank_reflection_thumb.png" width="100%" alt="" onclick="" class="hover-shadow"> </div>
+            <div class="column"> <h3>REFLECTION 4</h3> <img src="images/blank_reflection_thumb.png" width="100%" alt="" onclick="" class="hover-shadow"> </div>
+            </div>
+  </section>
 
-</section>
-
-<a name="presentation"></a>
-<section class="presentation">
-  <h2><span style="background-color: #FFFFFF">PRESENTATION</span></h2>
-  <br>
-  <div class="row">
-  <div class="column"> <h3>WEB AND MEDIA 2.0</h3> <img src="images/blank_presentation_thumb.png" width="100%" alt="" onclick="" class="hover-shadow"> </div>
-  </div>
-</section>
+  <!-- the presentation section -->
+  <a name="presentation"></a>
+  <section class="presentation">
+    <h2><span style="background-color: #FFFFFF">PRESENTATION</span></h2>
+    <br>
+    <div class="row">
+      <div class="column"> <h3>WEB AND MEDIA 2.0</h3> <img src="images/blank_presentation_thumb.png" width="100%" alt="" onclick="" class="hover-shadow"> </div>
+      </div>
+  </section>
 </body>
+
 </html>

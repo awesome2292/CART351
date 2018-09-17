@@ -1,27 +1,26 @@
-
 html, html * {
-    padding: 0;
-    margin: auto;
-    box-sizing: border-box;
+  padding: 0;
+  margin: auto;
 }
 
 body {
-    background-color: #E1D1D1;
-    background-image: linear-gradient( #FFFFFF, #FFFFFF, #E1D1D1, #99CCFF, #FFFFCC, #E1D1D1); /* Standard syntax (must be last) */
-    /*background-image: url("../images/background_image.jpg");
-    background-position: left top;*/
+  background-color: #E1D1D1;
+  /*Custom gradient made with several colors*/
+  background-image: linear-gradient(#FFFFFF, #FFFFFF, #E1D1D1, #99CCFF, #FFFFCC, #E1D1D1);
 }
 
+/***************** TITLES *******************/
 h1 {
-    display: block;
-    text-align: center;
-    font-family: Dosis;
-    color: #000000;
-    font-size: 7.63em;
-    font-weight: 400;
+  display: block;
+  text-align: center;
+  font-family: Dosis;
+  color: #000000;
+  font-size: 7.63em;
+  font-weight: 400;
 }
 
-.h1title{
+/*class for the title of the page*/
+.h1title {
   display: block;
   margin-top: 175px;
   margin-bottom: 10px;
@@ -29,7 +28,8 @@ h1 {
   margin-right: auto;
 }
 
-.h2title{
+/*class for the sub-title of the page*/
+.h2title {
   display: block;
   margin-top: 10px;
   margin-bottom: 230px;
@@ -38,155 +38,163 @@ h1 {
 }
 
 h2 {
-    display: block;
-    text-align: center;
-    font-family: Dosis;
-    color: #000000;
-    font-size: 3em;
-    font-weight: 400;
+  display: block;
+  text-align: center;
+  font-family: Dosis;
+  color: #000000;
+  font-size: 3em;
+  font-weight: 400;
 }
 
 h3 {
-    display: block;
-    text-align: center;
-    font-family: Dosis;
-    color: #000000;
-    font-size: 1.5em;
-    font-weight: 400;
+  display: block;
+  text-align: center;
+  font-family: Dosis;
+  color: #000000;
+  font-size: 1.5em;
+  font-weight: 400;
 }
 
+/***************** NAVIGATION & URLS *******************/
 ul {
-    margin: auto;
-    padding: 0;
-    text-align: center;
-    list-style-type: none;
-    font-family: Dosis;
-    color: #000000;
-    font-size: 2em;
-    font-weight: 400;
+  margin: auto;
+  padding: 0;
+  text-align: center;
+  list-style-type: none;
+  font-family: Dosis;
+  color: #000000;
+  font-size: 2em;
+  font-weight: 400;
 }
 
 li {
-    display: inline;
+  display: inline;
 }
 
 li a {
-    padding: 10px 30px;
-    text-decoration: none;
-    color: #000000;
-    display: inline-block;
-  	opacity: 0.6;
-  	transition: 0.3s;
+  padding: 10px 30px;
+  text-decoration: none;
+  color: #000000;
+  display: inline-block;
+  opacity: 0.6;
+  transition: 0.3s;
 }
-	li a:hover{
-		opacity: 1;
-	}
 
-  .github {
-      text-decoration: none;
-      color: #4d0026;
-    	opacity: 0.6;
-    	transition: 0.3s;
-  }
+li a:hover {
+  opacity: 1;
+}
 
-  .github:hover{
-    opacity: 1;
-  }
+.github {
+  text-decoration: none;
+  color: #4d0026;
+  opacity: 0.6;
+  transition: 0.3s;
+}
+
+.github:hover {
+  opacity: 1;
+}
 
 footer {
-    padding: 0;
-    margin: auto;
-    background-color: #fff;
-    z-index: 10;
+  padding: 0;
+  margin: auto;
+  background-color: #fff;
+  z-index: 10;
 }
 
 .sticky {
-    margin-bottom: auto;
-    position: -webkit-sticky;
-    position: sticky;
-    top: 0;
-    width: 100%;
+  margin-bottom: auto;
+  position: -webkit-sticky;
+  position: sticky;
+  top: 0;
+  width: 100%;
 }
 
+/***************** SECTIONS *******************/
 .assignments {
-    margin: auto;
-    font-family: Dosis;
-    padding: 50px 100px 50px 100px;
-    text-align: center;
-    line-height: 1.5;
-    font-size: 1.2em;
+  margin: auto;
+  font-family: Dosis;
+  padding: 50px 100px 50px 100px;
+  text-align: center;
+  line-height: 1.5;
+  font-size: 1.2em;
 }
 
 .projects {
-    margin: auto;
-    font-family: Dosis;
-    padding: 50px 100px 50px 100px;
-    text-align: center;
-    line-height: 1.5;
-    font-size: 1.2em;
+  margin: auto;
+  font-family: Dosis;
+  padding: 50px 100px 50px 100px;
+  text-align: center;
+  line-height: 1.5;
+  font-size: 1.2em;
 }
 
 .reflections {
-    margin: auto;
-    font-family: Dosis;
-    padding: 50px 100px 50px 100px;
-    text-align: center;
-    line-height: 1.5;
-    font-size: 1.2em;
+  margin: auto;
+  font-family: Dosis;
+  padding: 50px 100px 50px 100px;
+  text-align: center;
+  line-height: 1.5;
+  font-size: 1.2em;
 }
 
 .presentation {
-    margin: auto;
-    font-family: Dosis;
-    padding: 50px 100px 50px 100px;
-    text-align: center;
-    line-height: 1.5;
-    font-size: 1.2em;
+  margin: auto;
+  font-family: Dosis;
+  padding: 50px 100px 50px 100px;
+  text-align: center;
+  line-height: 1.5;
+  font-size: 1.2em;
 }
 
-.row > .column {
-    padding: 0 0px;
+/***************** THUMBNAILS *******************/
+.row>.column {
+  padding: 0 0px;
 }
+
+/* The row that follows */
 .row:after {
-    content: "";
-    display: table;
-    clear: both;
+  content: "";
+  display: table;
+  clear: both;
 }
 
 /* Create equal columns that float next to each other */
 .column {
-    display: inline-block;
-    float: center;
-    width: 33%;
+  display: inline-block;
+  float: center;
+  width: 33%;
 }
 
+/* Shadow appears when user hovers over thumbnail */
 img.hover-shadow {
-    transition: 0.3s;
-}
-.hover-shadow:hover {
-    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-	cursor: pointer;
+  transition: 0.3s;
 }
 
-/*scrollbar*/
+.hover-shadow:hover {
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  cursor: pointer;
+}
+
+/***************** SCROLLBAR *******************/
 /* width */
 ::-webkit-scrollbar {
-    width: 10px;
+  width: 10px;
 }
 
 /* Track */
 ::-webkit-scrollbar-track {
-    background: rgba(255, 255, 255, 0.1);
+  background: rgba(255, 255, 255, 0.1);
 }
 
 /* Handle */
 ::-webkit-scrollbar-thumb {
-    background: rgba(255, 255, 255, 0.1);
-	border-radius: 10px;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 10px;
 }
 
 /* Handle on hover */
 ::-webkit-scrollbar-thumb:hover {
-    background: #6C6C6C;
-	border-radius: 10px;
+  background: #6C6C6C;
+  border-radius: 10px;
 }
