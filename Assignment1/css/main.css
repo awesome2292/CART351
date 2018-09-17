@@ -7,7 +7,9 @@ html, html * {
 
 body {
     background-color: #E1D1D1;
-    background-image: linear-gradient(-90deg, #E1D1D1, #9090FA, #E1D1D1); /* Standard syntax (must be last) */
+    background-image: linear-gradient( #FFFFFF, #FFFFFF, #E1D1D1, #99CCFF, #FFFFCC, #E1D1D1); /* Standard syntax (must be last) */
+    /*background-image: url("../images/background_image.jpg");
+    background-position: left top;*/
 }
 
 h1 {
@@ -19,12 +21,28 @@ h1 {
     font-weight: 400;
 }
 
+.h1title{
+  display: block;
+  margin-top: 175px;
+  margin-bottom: 10px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.h2title{
+  display: block;
+  margin-top: 10px;
+  margin-bottom: 230px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
 h2 {
     display: block;
     text-align: center;
     font-family: Dosis;
     color: #000000;
-    font-size: 4em;
+    font-size: 3em;
     font-weight: 400;
 }
 
@@ -64,7 +82,7 @@ li a {
 
   .github {
       text-decoration: none;
-      color: #FFF;
+      color: #4d0026;
     	opacity: 0.6;
     	transition: 0.3s;
   }
@@ -139,6 +157,13 @@ footer {
     width: 33%;
 }
 
+img {
+  display: block;
+  margin-top: 25px;
+  margin-bottom: 25px;
+  margin-left: auto;
+  margin-right: auto;
+}
 
 img.hover-shadow {
     transition: 0.3s;
