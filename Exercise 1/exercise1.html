@@ -30,35 +30,33 @@
   </style>
   <script>
   window.onload = function(){
+
+//function for Box C
 let handleClickC = function (event){
-  // do something!
   document.getElementById('displayText').innerHTML = "This is the Text for Box C."
   console.log("box c was clicked");
 };
-
 let cBox = document.getElementById('c');
   cBox.addEventListener('click', handleClickC);
 
-
+//function for Box D
 let handleClickD = function (event){
-// do something!
 document.getElementById('displayText').innerHTML = "This is the Text for Box D."
 console.log("box d was clicked");
 };
 let dBox = document.getElementById('d');
 dBox.addEventListener('click', handleClickD);
 
+//function for Box E
 let handleClickE = function (event){
-// do something!
 document.getElementById('displayText').innerHTML = "This is the Text for Box E."
 console.log("box e was clicked");
 };
 let eBox = document.getElementById('e');
 eBox.addEventListener('click', handleClickE);
 }
-
-
   </script>
+
 <style type="text/css">.backpack.dropzone {
   font-family: 'SF UI Display', 'Segoe UI';
   font-size: 15px;
@@ -122,9 +120,20 @@ eBox.addEventListener('click', handleClickE);
   <div id="d" class="box"></div>
   <div id="e" class="box"></div>
   <br>
-  <p style="display:inline-block;" id="displayText" class="para">Click on a box.</p>
+  <p style="display:inline-block;" id="displayText" class="para" onclick="textDisappear()">Click on a box.</p>
 </div>
 
+<script>
+//hides the text when you click on it
+let textDisappear = function(){
+  let paragraph = document.getElementById('displayText');
+  if (paragraph.style.display === "none") {
+        paragraph.style.display = "block";
+    } else {
+        paragraph.style.display = "none";
+    }
+}
+</script>
 
 
 </body></html>
