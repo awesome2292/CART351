@@ -1,0 +1,130 @@
+<html class="gr__clab_concordia_ca"><head>
+  <title> EXERCISE 1 </title>
+  <style>
+  #c {
+      background-color: #3e181b;
+      border: 3px solid #db1d2d;}
+
+  #d {
+      background-color: #422018;
+      border: 3px solid #f0421c;}
+
+  #e {
+      background-color: #45391b;
+      border: 3px solid #fec02d;}
+
+  body{
+        background:black;}
+  .para {color:white;font-size:22pt; background:purple;margin-left: 1%;margin-top: 1%; padding:1%;}
+      .box {
+      width: 10vw; /*(1/10th) viewport width */
+      height: 10vw;
+      margin-left: 1%;
+      margin-top: 1%;
+      display:inline-block;
+    }
+  .wrapper{
+    margin-left:30%;
+    margin-top:15%;
+  }
+  </style>
+  <script>
+  window.onload = function(){
+let handleClickC = function (event){
+  // do something!
+  document.getElementById('displayText').innerHTML = "This is the Text for Box C."
+  console.log("box c was clicked");
+};
+
+let cBox = document.getElementById('c');
+  cBox.addEventListener('click', handleClickC);
+
+
+let handleClickD = function (event){
+// do something!
+document.getElementById('displayText').innerHTML = "This is the Text for Box D."
+console.log("box d was clicked");
+};
+let dBox = document.getElementById('d');
+dBox.addEventListener('click', handleClickD);
+
+let handleClickE = function (event){
+// do something!
+document.getElementById('displayText').innerHTML = "This is the Text for Box E."
+console.log("box e was clicked");
+};
+let eBox = document.getElementById('e');
+eBox.addEventListener('click', handleClickE);
+}
+
+
+  </script>
+<style type="text/css">.backpack.dropzone {
+  font-family: 'SF UI Display', 'Segoe UI';
+  font-size: 15px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 250px;
+  height: 150px;
+  font-weight: lighter;
+  color: white;
+  will-change: right;
+  z-index: 2147483647;
+  bottom: 20%;
+  background: #333;
+  position: fixed;
+  user-select: none;
+  transition: left .5s, right .5s;
+  right: 0px; }
+  .backpack.dropzone .animation {
+    height: 80px;
+    width: 250px;
+    background: url("chrome-extension://lifbcibllhkdhoafpjfnlhfpfgnpldfl/assets/backpack/dropzone/hoverstate.png") left center; }
+  .backpack.dropzone .title::before {
+    content: 'Save to'; }
+  .backpack.dropzone.closed {
+    right: -250px; }
+  .backpack.dropzone.hover .animation {
+    animation: sxt-play-anim-hover 0.91s steps(21);
+    animation-fill-mode: forwards;
+    background: url("chrome-extension://lifbcibllhkdhoafpjfnlhfpfgnpldfl/assets/backpack/dropzone/hoverstate.png") left center; }
+
+@keyframes sxt-play-anim-hover {
+  from {
+    background-position: 0px; }
+  to {
+    background-position: -5250px; } }
+  .backpack.dropzone.saving .title::before {
+    content: 'Saving to'; }
+  .backpack.dropzone.saving .animation {
+    background: url("chrome-extension://lifbcibllhkdhoafpjfnlhfpfgnpldfl/assets/backpack/dropzone/saving_loop.png") left center;
+    animation: sxt-play-anim-saving steps(59) 2.46s infinite; }
+
+@keyframes sxt-play-anim-saving {
+  100% {
+    background-position: -14750px; } }
+  .backpack.dropzone.saved .title::before {
+    content: 'Saved to'; }
+  .backpack.dropzone.saved .animation {
+    background: url("chrome-extension://lifbcibllhkdhoafpjfnlhfpfgnpldfl/assets/backpack/dropzone/saved.png") left center;
+    animation: sxt-play-anim-saved steps(20) 0.83s forwards; }
+
+@keyframes sxt-play-anim-saved {
+  100% {
+    background-position: -5000px; } }
+</style></head>
+<body data-gr-c-s-loaded="true">
+  <div class="wrapper">
+  <div id="c" class="box"></div>
+  <div id="d" class="box"></div>
+  <div id="e" class="box"></div>
+  <br>
+  <p style="display:inline-block;" id="displayText" class="para">Click on a box.</p>
+</div>
+
+
+
+</body></html>
