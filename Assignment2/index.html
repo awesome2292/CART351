@@ -5,26 +5,51 @@
 <title>index.html</title>
 <link href="style/style.css" rel="stylesheet" type="text/css">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+<script>
+window.onload = function(){
+	console.log("this function is functioning");
+	let canvas = document.getElementById("myCanvas");
+	let context = canvas.getContext("2d");
+	let TextX = canvas.width/2;
+  let TextY = canvas.height/2;
+
+let submitClick = function(event){
+context.font = "30px Arial";
+context.fillText(document.getElementById('floatingText').value, TextX, TextY);
+document.getElementById('floatingText').value = null;
+console.log("you pressed the submit button!");
+}
+
+let enterButton = document.getElementById('enterButton');
+enterButton.addEventListener('click', submitClick);
+
+
+
+}
+
+</script>
 </head>
 
-<body>
 
+<body>
+<canvas id="myCanvas" width=1000px height=600px style="border:1px solid #d3d3d3;"></canvas>
 </body>
-	
+
 	<footer class="bottomnav">
-  
-    
+
+
     <section class="flexbox">
             <div class="stretch">
-                <input type="text" placeholder="Type something..." />
+                <input id="floatingText" type="text" placeholder="Type something..." />
             </div>
             <div class="normal">
-                <button>SUBMIT</button>
+                <button id="enterButton" >SUBMIT</button>
             </div>
     </section>
 
-   
 
-  
+
+
 </footer>
 </html>
