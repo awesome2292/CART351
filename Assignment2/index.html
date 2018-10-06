@@ -14,20 +14,73 @@ window.onload = function(){
 	let TextX = canvas.width/2;
   let TextY = canvas.height/2;
 
-let submitClick = function(event){
-context.font = "30px Arial";
-context.fillText(document.getElementById('floatingText').value, TextX, TextY);
-document.getElementById('floatingText').value = null;
-console.log("you pressed the submit button!");
+
+	let submitClick = function(event){
+	//context.fillText(document.getElementById('floatingText').value, TextX, TextY);
+	//declare a shape
+	let writtenText = new CustomShape(canvas.width/2,canvas.height/2,30,30);
+	requestAnimationFrame(run);
+	//our run method
+	function run(){
+		context.clearRect(0,0,canvas.width,canvas.height);
+	  writtenText.display();
+	  writtenText.update();
+	  //recursive call
+	  requestAnimationFrame(run);
+	}
+	//document.getElementById('floatingText').value = null;
+	console.log("you pressed the submit button!");
+	}
+
+	let enterButton = document.getElementById('enterButton');
+	enterButton.addEventListener('click', submitClick);
+
+
+	function CustomShape(x,y,h,w){
+	    //member properties
+	    this.x=x;
+	    this.y=y;
+			this.h=h;
+			this.w=w;
+	    //add in when we update
+	    this.speedX = 1;
+	    this.speedY = 4;
+	    this.innerX = this.x+15;
+	    this.innerY = this.y+15;
+	    //display method
+	    this.display = function(){
+	      //lets draw something
+			console.log("This shape " + document.getElementById('floatingText').value + "is being displayed rn");
+			context.beginPath();
+			context.font = "30px Arial";
+			context.fillStyle = 'red';
+	    context.fillText(document.getElementById('floatingText').value, this.x, this.y);
+	    //context.clearRect(0,0,canvas.width,canvas.height);
+			context.closePath();
+
+	    }
+
+			this.update = function(){
+				console.log("This shape is being moved rn");
+	      //edges bouncing specifically for a rect with corner coords.
+	      if(this.x>(canvas.width-this.w)||this.x<0){
+	        this.speedX*=-0.2;
+	      }
+	      if(this.y>(canvas.height-this.h)||this.y<0){
+	        this.speedY*=-0.8;
+	      }
+
+	      //change by speed ...
+	      this.x+=this.speedX;
+	      this.y+=this.speedY;
+	      //need to update the inner vars here ....
+	      this.innerX = this.x+this.innerW/2;
+	      this.innerY = this.y+this.innerH/2;
+	    }
+
+	}
+
 }
-
-let enterButton = document.getElementById('enterButton');
-enterButton.addEventListener('click', submitClick);
-
-
-
-}
-
 </script>
 </head>
 
@@ -44,7 +97,7 @@ enterButton.addEventListener('click', submitClick);
                 <input id="floatingText" type="text" placeholder="Type something..." />
             </div>
             <div class="normal">
-                <button id="enterButton" >SUBMIT</button>
+                <button id="enterButton" >WRITE</button>
             </div>
     </section>
 
