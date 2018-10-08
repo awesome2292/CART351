@@ -26,18 +26,22 @@
 	let TextX = canvas.width/2;
   let TextY = canvas.height/2;
 
+	let texts = [];
 
 	let submitClick = function(event){
 	//context.fillText(document.getElementById('floatingText').value, TextX, TextY);
+	texts.push(document.getElementById('floatingText').value);
 	//declare a shape
 	let writtenText = new CustomShape(canvas.width/2,canvas.height/2,this.clientWidth,this.clientHeight);
-	console.log("width: "+this.clientWidth+ " height: "+this.clientHeight);
+	//console.log("width: "+this.clientWidth+ " height: "+this.clientHeight);
 	requestAnimationFrame(run);
 	//our run method
 	function run(){
 		context.clearRect(0,0,canvas.width,canvas.height);
-	  writtenText.display();
-	  writtenText.update();
+		for(var i = 0;i<texts.length;i++){
+	  texts[i].display();
+	  texts[i].update();
+	}
 	  //recursive call
 	  requestAnimationFrame(run);
 	}
@@ -59,7 +63,7 @@
 			console.log("x: "+this.x+ " y: "+this.y+ " w: "+ this.w+ " h: "+this.h);
 	    //add in when we update
 	    this.speedX = 1;
-	    this.speedY = 4;
+	    this.speedY = 1;
 	    this.innerX = this.x+this.w/2;
 	    this.innerY = this.y+this.h/2;
 	    this.innerW= this.w/2;
@@ -71,7 +75,9 @@
 			context.beginPath();
 			context.font = "15px Helvetica";
 			context.fillStyle = 'red';
-	    context.fillText(document.getElementById('floatingText').value, this.x, this.y);
+			for(var i=0;i<texts.length;i++){
+	    context.fillText(texts[i]);
+		}
 	    //context.clearRect(this.innerX,this.innerY,this.innerW,this.innerH);
 			context.closePath();
 
@@ -80,10 +86,10 @@
 			this.update = function(){
 				//console.log("This shape is being moved rn");
 	      //edges bouncing specifically for a rect with corner coords.
-	      if(this.x>(canvas.width-this.innerW)||this.x<0){
+	      if(this.x<0||this.x>canvas.width){
 	        this.speedX*=-1;
 	      }
-	      if(this.y>(canvas.height-this.innerH)||this.y<0){
+	      if(this.y<0||this.y>canvas.height){
 	        this.speedY*=-1;
 	      }
 
