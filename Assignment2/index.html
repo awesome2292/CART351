@@ -8,15 +8,21 @@
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
 	<script>
- 		window.onload = function(){
+		window.onload = function(){
 	//console.log("this function is functioning");
 	let canvas = document.getElementById("myCanvas");
+	canvas.height = window.innerHeight;
+	canvas.width = window.innerWidth;
 	let context = canvas.getContext("2d");
 	let TextX = canvas.width/2;
   let TextY = canvas.height/2;
 
 	let texts = [];
-
+	
+window.onresize = function(){
+	canvas.height = window.innerHeight;
+	canvas.width = window.innerWidth;
+}
 	let submitClick = function(event){
 	//context.fillText(document.getElementById('floatingText').value, TextX, TextY);
 	//declare a shape
@@ -103,26 +109,25 @@
 
 <body>
 	<canvas id="myCanvas"></canvas>
+	<footer class="bottomnav">
+
+
+		<section class="flexbox">
+			<div class="stretch">
+				<input id="floatingText" type="text" placeholder="Type something..." />
+	            </div>
+				<div class="normal">
+					<!-- <button class="fa fa-camera" style="font-size:24px"></button> -->
+				</div>
+				<div class="normal">
+					<button id="enterButton" >WRITE</button>
+				</div>
+		</section>
+
+
+
+
+	</footer>
 </body>
-
-<footer class="bottomnav">
-
-
-	<section class="flexbox">
-		<div class="stretch">
-			<input id="floatingText" type="text" placeholder="Type something..." />
-            </div>
-						<div class="normal">
-							<!-- <button class="fa fa-camera" style="font-size:24px"></button> -->
-						</div>
-			<div class="normal">
-				<button id="enterButton" >WRITE</button>
-			</div>
-	</section>
-
-
-
-
-</footer>
 
 </html>
