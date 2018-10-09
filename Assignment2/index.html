@@ -30,9 +30,9 @@
 
 	let submitClick = function(event){
 	//context.fillText(document.getElementById('floatingText').value, TextX, TextY);
-	texts.push(document.getElementById('floatingText').value);
 	//declare a shape
-	let writtenText = new CustomShape(canvas.width/2,canvas.height/2,this.clientWidth,this.clientHeight);
+	let writtenText = new CustomShape(document.getElementById('floatingText').value,canvas.width/2,canvas.height/2,this.clientWidth,this.clientHeight);
+	texts.push(writtenText);
 	//console.log("width: "+this.clientWidth+ " height: "+this.clientHeight);
 	requestAnimationFrame(run);
 	//our run method
@@ -45,7 +45,7 @@
 	  //recursive call
 	  requestAnimationFrame(run);
 	}
-	//document.getElementById('floatingText').value = null;
+	document.getElementById('floatingText').value = null;
 	//console.log("you pressed the submit button!");
 	}
 
@@ -53,8 +53,9 @@
 	enterButton.addEventListener('click', submitClick);
 
 
-	function CustomShape(x,y,w,h){
+	function CustomShape(word,x,y,w,h){
 	    //member properties
+			this.word=word;
 	    this.x=x;
 	    this.y=y;
 			this.w=w;
@@ -76,7 +77,7 @@
 			context.font = "15px Helvetica";
 			context.fillStyle = 'red';
 			for(var i=0;i<texts.length;i++){
-	    context.fillText(texts[i]);
+	    context.fillText(this.word, this.x, this.y);
 		}
 	    //context.clearRect(this.innerX,this.innerY,this.innerW,this.innerH);
 			context.closePath();
