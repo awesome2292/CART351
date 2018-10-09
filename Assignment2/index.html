@@ -63,8 +63,8 @@
 
 			console.log("x: "+this.x+ " y: "+this.y+ " w: "+ this.w+ " h: "+this.h);
 	    //add in when we update
-	    this.speedX = 1;
-	    this.speedY = 1;
+	    this.speedX = 0.5;
+	    this.speedY = 0.5;
 	    this.innerX = this.x+this.w/2;
 	    this.innerY = this.y+this.h/2;
 	    this.innerW= this.w/2;
@@ -95,8 +95,10 @@
 	      }
 
 	      //change by speed ...
+
 	      this.x+=this.speedX;
 	      this.y+=this.speedY;
+
 	      //need to update the inner vars here ....
 	      this.innerX = this.x;
 	      this.innerY = this.y;
