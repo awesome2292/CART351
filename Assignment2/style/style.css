@@ -43,6 +43,7 @@
    width: 100%;
    background-color:black;
    border:solid 1px green;
+   font-family: "courier";
    color: green;
    outline:none;
  }
@@ -52,6 +53,7 @@
    white-space: nowrap;
    background-color:black;
    border:solid 1px green;
+   font-family: "courier";
    color: green;
    outline:none;
  }
