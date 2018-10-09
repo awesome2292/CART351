@@ -44,6 +44,7 @@
    background-color:black;
    border:solid 1px green;
    color: green;
+   outline:none;
  }
 
  .flexbox div button {
@@ -52,6 +53,7 @@
    background-color:black;
    border:solid 1px green;
    color: green;
+   outline:none;
  }
 
  .bottomnav {
