@@ -56,6 +56,12 @@
    outline:none;
  }
 
+ .flexbox div button:hover{
+   background-color:green;
+   border:solid 1px green;
+   color: black;
+ }
+
  .bottomnav {
    position: absolute;
    bottom: 0;
