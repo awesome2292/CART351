@@ -7,9 +7,12 @@
 	<link href="style/style.css" rel="stylesheet" type="text/css">
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
+
+<!--All the javascript code-->
 	<script>
+	//onload function
 		window.onload = function(){
-	//console.log("this function is functioning");
+	//cavnas variables
 	let canvas = document.getElementById("myCanvas");
 	canvas.height = window.innerHeight;
 	canvas.width = window.innerWidth;
@@ -17,21 +20,25 @@
 	let TextX = canvas.width/2;
   let TextY = canvas.height/2;
 
-	let texts = [];
-	
+	//canvas resizing function
 window.onresize = function(){
 	canvas.height = window.innerHeight;
 	canvas.width = window.innerWidth;
 }
+
+	//text array
+	let texts = [];
+
+	//function event listener for clicking
 	let submitClick = function(event){
-	//context.fillText(document.getElementById('floatingText').value, TextX, TextY);
 	//declare a shape
 	let writtenText = new CustomShape(document.getElementById('floatingText').value,canvas.width/2,canvas.height/2,this.clientWidth,this.clientHeight);
+	//push new shape into the text array
 	texts.push(writtenText);
-	//console.log("width: "+this.clientWidth+ " height: "+this.clientHeight);
 	requestAnimationFrame(run);
 	//our run method
 	function run(){
+		//display and update of the array
 		context.clearRect(0,0,canvas.width,canvas.height);
 		for(var i = 0;i<texts.length;i++){
 	  texts[i].display();
@@ -40,14 +47,14 @@ window.onresize = function(){
 	  //recursive call
 	  requestAnimationFrame(run);
 	}
+	//reset the value of the string in the input box
 	document.getElementById('floatingText').value = null;
-	//console.log("you pressed the submit button!");
 	}
-
+	//click on the button event listener
 	let enterButton = document.getElementById('enterButton');
 	enterButton.addEventListener('click', submitClick);
 
-
+//Text Custom Shape
 	function CustomShape(word,x,y,w,h){
 	    //member properties
 			this.word=word;
@@ -64,24 +71,22 @@ window.onresize = function(){
 	    this.innerY = this.y+this.h/2;
 	    this.innerW= this.w/2;
 	    this.innerH = this.h/2;
-			let splitWord = word.split(" ");
+
 	    //display method
 	    this.display = function(){
-	      //lets draw something
-			//console.log("This shape " + document.getElementById('floatingText').value + "is being displayed rn");
+	      //draw the shape with specific font and size
 			context.beginPath();
-			context.font = "8px courier";
+			context.font = "30px courier";
 			context.fillStyle = 'green';
 			for(var i=0;i<texts.length;i++){
 	    context.fillText(this.word, this.x, this.y);
 		}
-	    //context.clearRect(this.innerX,this.innerY,this.innerW,this.innerH);
 			context.closePath();
 
 	    }
 
+			//update function
 			this.update = function(){
-				//console.log("This shape is being moved rn");
 	      //edges bouncing specifically for a rect with corner coords.
 	      if(this.x<0||this.x>canvas.width){
 	        this.speedX*=-1;
