@@ -1,24 +1,124 @@
-<!DOCTYPE html>
-
+<!doctype html>
 <html>
-
 <head>
+<meta charset="utf-8">
+<title> Accesing Screen Time Usage </title>
+<link rel="stylesheet" type="text/css" href="style/style.css">
+<link href="https://fonts.googleapis.com/css?family=Kodchasan|Titillium+Web" rel="stylesheet">
+<script src = "jquery/jquery-3.3.1.min.js"></script>
+   <script>
+   $(document).ready(function(){
+   let header = $('header');
+   let section = $('section');
+   let loaded=false;
+   let searchCount = 0;
 
+
+   $("#getData").click(function(){
+           let day = $("#searchDay").val().toLowerCase();
+           searchCount+=1;
+
+           if(searchCount <= 1){
+             $("#contentHeader").empty();
+             $("#contentSection").empty();
+             searchCount = 0;
+           }
+
+   $.getJSON('screenTime.json',function(data) {
+        //success
+          //step 1: console.log the result
+          console.log(data);
+          loaded=true;
+          //set boolean to true
+
+          populateHeader(data);
+          showData(data);
+
+        })
+        //fail
+        .fail(function() {
+          console.log( "error" );
+        });
+
+        function populateHeader(data){
+              let sampleHeader = $("<h1>");
+              $(sampleHeader).text(data.Label);
+              $(sampleHeader).appendTo($("#contentHeader"));
+
+
+              let samplePara = $("<p>");
+              console.log(data.SubLabel);
+              $(samplePara).text(data.SubLabel);
+              $(samplePara).appendTo($("#contentHeader"));
+
+            }
+
+
+            function showData(data){
+            // our array of each book objects
+            let screenTime = data['screenTimeData'];
+            console.log(data.screenTimeData);
+            $.each(data.screenTimeData, function(i,element) {
+            //for (var i = 0; i < screenTime.length; i++) {
+              let sampleDataArticle = $('<article>');
+              let sampleDataTitle = $('<h1>');
+              let sampleDataTime =$('<h2>');
+              let samplePara1 = $("<p>");
+              let samplePara2 = $("<p>");
+              let samplePara3 = $("<p>");
+              let samplePara4 = $("<p>");
+              let sampleList= $("<ul>");
+
+
+
+              $(sampleDataTime).text(element.Time);
+              $(samplePara1).text(element.Usage.SocialNetworking);
+              $(samplePara2).text(element.Usage.Creative);
+              $(samplePara3).text(element.Usage.Entertainment);
+              $(samplePara4).text(element.Usage.Other);
+
+              if (day === element.Day.toLowerCase()) {
+                $(sampleDataTitle).text(element.Day);
+                  console.log(element.Day);
+                  $(sampleDataTitle).appendTo(sampleDataArticle);
+                  $(sampleDataTime).appendTo(sampleDataArticle);
+                  $(samplePara1).appendTo(sampleDataArticle);
+                  $(samplePara2).appendTo(sampleDataArticle);
+                  $(samplePara3).appendTo(sampleDataArticle);
+                  $(samplePara4).appendTo(sampleDataArticle);
+                  $($("#contentSection")).append(sampleDataArticle);
+              }
+
+              else if (day === "all"){
+              $(sampleDataTitle).appendTo(sampleDataArticle);
+              $(sampleDataTime).appendTo(sampleDataArticle);
+              $(samplePara1).appendTo(sampleDataArticle);
+              $(samplePara2).appendTo(sampleDataArticle);
+              $(samplePara3).appendTo(sampleDataArticle);
+              $(samplePara4).appendTo(sampleDataArticle);
+              $(sampleList).appendTo(sampleDataArticle);
+              $($("#contentSection")).append(sampleDataArticle);
+            }
+
+
+});
+             //screen time
+          }//function
+ });
+ });
+
+   </script>
+  </head>
+  <input id="searchDay" type="text" name="Search" value="">
+<input type="button" id="getData" value="Load Data" />
 </head>
-
 <body>
+  <header id="contentHeader">
+</header>
 
-  <header>
+<section id="contentSection">
 
-  </header>
-
-
-
-  <footer>
-
-
-  </footer>
+</section>
 
 </body>
-
 </html>

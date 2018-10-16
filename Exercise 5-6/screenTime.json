@@ -1,0 +1,50 @@
+{
+  "Label": "Screen Time Over 4 Days",
+  "SubLabel": "This data is loaded from a json file.",
+  "screenTimeData": [{
+      "Day": "Wednesday",
+      "Time": "1 hour 14 minutes spent on phone.",
+      "Usage": {
+        "SocialNetworking": "30 minutes on Social Networking.",
+        "Creative": "15 minutes on Creativity.",
+        "Entertainment": "20 minutes on Entertainment.",
+        "Other": "9 minutes on Other."
+      }
+    },
+
+    {
+      "Day": "Thursday",
+      "Time": "2 hours 19 minutes spent on phone.",
+      "Usage": {
+        "SocialNetworking": "42 minutes on Social Networking.",
+        "Creative": "17 minutes on Creativity.",
+        "Entertainment": "51 minutes on Entertainment",
+        "Other": "29 minutes on Other."
+      }
+    },
+
+    {
+      "Day": "Friday",
+      "Time": "1 hour 57 minutes spent on phone.",
+      "Usage": {
+        "SocialNetworking": "55 minutes on Social Networking.",
+        "Creative": "8 minutes on Creativity.",
+        "Entertainment": "24 minutes on Entertainment",
+        "Other": "30 minutes on Other."
+      }
+    },
+
+    {
+      "Day": "Saturday",
+      "Time": "2 hours 42 minutes spent on phone.",
+      "Usage": {
+        "SocialNetworking": "1 hour 03 minutes on Social Networking.",
+        "Creative": "7 minutes on Creativity.",
+        "Entertainment": "37 minutes on Entertainment",
+        "Other": "55 minutes on Other."
+      }
+    }
+
+  ]
+
+}
