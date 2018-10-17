@@ -14,15 +14,16 @@ body {
 h1 {
   font-weight: bold;
   font-size: 2.5em;
+
 }
 
 
 header p {
   font-weight: bold;
-  margin-left:30vw;
+  margin-left:0px;
 }
 section{
-  margin-left:25vw;
+  margin-left:180px;
 }
 
 /* section styles */
@@ -31,7 +32,7 @@ section article {
   margin-left:2%;
   margin-right:20%;
   margin-bottom:2%;
-  background:#b4e4f6;
+  background:#b4ec92;
   padding:2%;
 }
 
@@ -45,13 +46,37 @@ h2 {
   margin-bottom: 10px;
 }
 #getData{
-  background-color: #A7A7A7; /* Green */
+  background-color: #A7A7A7;
     border: none;
     color: white;
+    float: right;
     padding: 15px 32px;
+    width: 17%;
     text-align: center;
     text-decoration: none;
     display: inline-block;
     font-family: 'Titillium Web', sans-serif;
-    font-size: 32px;
+    font-size: 15px;
+}
+
+footer{
+  color: grey;
+  position: absolute;
+   bottom: 0;
+   width: 100%;
+   padding: 0;
+}
+
+#searchDay{
+  top:0;
+  left:0;
+  width: 80%;
+  padding: 0;
+  padding: 15px;
+  font-size: 15px;
+  display: inline-block;
+}
+
+#contentHeader{
+  margin-left:200px
 }
