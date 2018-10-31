@@ -16,6 +16,11 @@ h1{
   padding: 0;
 }
 
+.title{
+  font-style: italic;
+  font-size: 1.8em;
+}
+
 .sectionTitle{
   font-style: italic;
   font-size: 1.8em;
@@ -51,4 +56,10 @@ a {
 p{
   font-size: 20px;
   margin-bottom: 30px;
+}
+
+img {
+    margin:auto;
+    display: block;
+    border-radius: 8px;
 }
