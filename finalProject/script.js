@@ -1,16 +1,17 @@
 widthClient = window.innerWidth;
 heightClient = window.innerHeight;
-var nodes = [];
+var nodes = [1];
+var countIP = 1;
+
 function setup(){
   createCanvas(widthClient,heightClient);
     background(230);
     fill(0);
 }
 function draw(){
-  for (var i = 0; i < nodes.length; i++) {
-    nodes[i].show();
-  }
-  }
+  centernode = ellipse(window.innerWidth/2, window.innerHeight/2,50,50);
+  nodes[0] = centernode;
+
 /**
  * Get the user IP through the webkitRTCPeerConnection
  * @param onNewIP {Function} listener function to expose the IP locally
@@ -59,5 +60,12 @@ function getUserIP(onNewIP) { //  onNewIp - your listener function for new IPs
 getUserIP(function(ip){
   var ellipseSize = 30;
     console.log("Got IP! :" + ip);
-    nodes.push(new ellipse(random(100, widthClient-100),random(100,heightClient-100),ellipseSize,ellipseSize));
+    countIP += 1;
+    console.log(countIP);
+    for(var i = 0; i < countIP; i++){
+    nodes[i].push(ellipse(random(100, widthClient-100),random(100,heightClient-100),ellipseSize,ellipseSize));
+    console.log(i);
+  }
 });
+
+}
