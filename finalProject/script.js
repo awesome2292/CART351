@@ -1,12 +1,15 @@
 widthClient = window.innerWidth;
 heightClient = window.innerHeight;
-
+var nodes = [];
 function setup(){
   createCanvas(widthClient,heightClient);
     background(230);
+    fill(0);
 }
 function draw(){
-
+  for (var i = 0; i < nodes.length; i++) {
+    nodes[i].show();
+  }
   }
 /**
  * Get the user IP throught the webkitRTCPeerConnection
@@ -54,8 +57,7 @@ function getUserIP(onNewIP) { //  onNewIp - your listener function for new IPs
 // Usage
 
 getUserIP(function(ip){
-  var size = 30;
+  var ellipseSize = 30;
     console.log("Got IP! :" + ip);
-    fill(0, 0, 0);
-    ellipse(random(100, widthClient-100),random(100,heightClient-100),size, size);
+    nodes.push(new ellipse(random(100, widthClient-100),random(100,heightClient-100),ellipseSize,ellipseSize));
 });
