@@ -24,10 +24,47 @@ canvas
 </head>
 
 <body>
-<?php
-include('fecthIPMain.php');
-?>
-<span id="ip"></span>
+
+  <div class= "formContainer">
+  <!--form done using more current tags... -->
+  <form id="userForm" action="">
+  <!-- group the related elements in a form -->
+  <h3> LOGIN :::</h3>
+  <fieldset>
+  <p><label>Username:</label><input type = "text" size="10" maxlength = "15"  name = "u_name" value = "" required></p>
+  <p class = "sub"><input type = "submit" name = "submit" value = "login" id ="buttonS" /></p>
+   </fieldset>
+  </form>
+  </div>
+
+  <script>
+  $(document).ready (function(){
+      $("#userForm").submit(function(event) {
+         //stop submit the form, we will post it manually. PREVENT THE DEFAULT behaviour ...
+      event.preventDefault();
+       console.log("button clicked");
+       let form = $('#userForm')[0];
+       let data = new FormData(form);
+       $.ajax({
+              type: "POST",
+              enctype: 'text/plain',
+              url: "fetchUserInfo.php",
+              data: data,
+              processData: false,//prevents from converting into a query string
+              contentType: false,
+              cache: false,
+              timeout: 600000,
+              success: function (response) {
+              console.log(response);
+             },
+             error:function(){
+            console.log("error occurred");
+          }
+        });
+     });
+
+  });
+  </script>
 </body>
 
 </html>
