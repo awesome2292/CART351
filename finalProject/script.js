@@ -19,6 +19,7 @@ function createNode(){
 }
 }
 
+
 /**
  * Get the user IP through the webkitRTCPeerConnection
  * @param onNewIP {Function} listener function to expose the IP locally

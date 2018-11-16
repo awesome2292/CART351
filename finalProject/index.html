@@ -22,31 +22,41 @@ canvas
   padding:0;
 }
 fieldset{
-    display: block;
     margin: auto;
     border: none;
+    float: center;
+    text-align: center;
 }
 label{
-  display: block;
   float: center;
   margin: auto;
 }
+h3 {
+  float: center;
+  text-align: center;
+}
+input{
+  width:200px;
+  height: 38px;
+  margin-left: 10px;
+  margin-right: 10px;
+}
+.btn {
+  background-color: #4CAF50;
+  color: white;
+  padding: 20px 20px;
+  border: none;
+  cursor: pointer;
+  width: 100px;
+  opacity: 0.8;
+  margin: auto;
+  text-align: center;
+  }
+}
+
+
 </style>
-</head>
 
-<body>
-
-  <div class= "formContainer">
-  <!--form done using more current tags... -->
-  <form id="userForm" action="">
-  <!-- group the related elements in a form -->
-  <h3> Login</h3>
-  <fieldset>
-  <p><label>Username:</label><input type = "text" size="10" maxlength = "15"  name = "u_name" value = "" required></p>
-  <p class = "sub"><input type = "submit" name = "submit" value = "login" id ="buttonS" /></p>
-   </fieldset>
-  </form>
-  </div>
 
   <script>
   $(document).ready (function(){
@@ -73,9 +83,35 @@ label{
           }
         });
      });
-
   });
+  function myFunction() {
+    if(document.getElementById("userInput") != ""){
+      var x = document.getElementById("myForm");
+      if (x.style.display === "none") {
+          x.style.display = "block";
+      } else {
+          x.style.display = "none";
+      }
+    }
+
+  }
   </script>
+</head>
+
+<body>
+
+  <div class= "formContainer" id="myForm">
+  <!--form done using more current tags... -->
+  <form id="userForm" action="">
+  <!-- group the related elements in a form -->
+  <h3> Login</h3>
+  <fieldset>
+  <label>Username:</label><input type="text" maxlength="15"  name="u_name" id="userInput" value="" required/>
+  <input type="submit" name="submit" value="login" id="buttonS" class="btn" onclick="myFunction()"/>
+   </fieldset>
+  </form>
+  </div>
+
 </body>
 
 </html>
