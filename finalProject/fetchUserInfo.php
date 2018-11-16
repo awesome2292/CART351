@@ -43,15 +43,32 @@ while($row = $result->fetchArray(SQLITE3_NUM))
 
 
     //send back success...
-    echo("insertion complete"); //COMMENT OUT
-    exit; //COMMENT OUT
+    //echo("insertion complete"); //COMMENT OUT
+    //exit; //COMMENT OUT
 
   }
-  echo("already taken");//COMMENT OUT
+  //echo("already taken");//COMMENT OUT
 
 }
 // DO QUERY NUMBER 2 :: GET ALL USERS
-
+$sql_select="SELECT * FROM ('$uname')";
+      $result = $db->query($sql_select);
+      if (!$result) die("Cannot execute query.");
+      // get a row...
+      // MAKE AN ARRAY::
+      $res = array();
+      $i=0;
+      while($row = $result->fetchArray(SQLITE3_ASSOC))
+      {
+        // note the result from SQL is ALREADy ASSOCIATIVE
+       $res[$i] = $row;
+       $i++;
+      }//end while
+      // endcode the resulting array as JSON
+      $myJSONObj = json_encode($res);
+      echo $myJSONObj;
+       exit;
+      }//POST
  exit;
 }//POST
 ?>

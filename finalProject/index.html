@@ -83,6 +83,10 @@ input{
               //console.log(response);
               userName = $("#userInput").val();
               start=true;
+              //use the JSON .parse function to convert the JSON string into a Javascript object
+            let parsedJSON = JSON.parse(response);
+            console.log(parsedJSON);
+            displayResponse(parsedJSON);
              },
              error:function(){
             console.log("error occurred");
