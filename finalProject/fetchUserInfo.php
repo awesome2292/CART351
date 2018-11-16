@@ -29,6 +29,10 @@ while($row = $result->fetchArray(SQLITE3_NUM))
   if($row[0] === 0)
   {
     $queryInsert ="INSERT INTO userInfo(username)VALUES ('$uname')";
+    $uAmnt = $_GET["userAmount"];
+    $uAmnt = "SELECT userInfo(username)VALUES ('$uname')";
+    echo('$uAmnt');
+
   // again we do error checking when we try to execute our SQL statement on the db
 	 $ok1 = $db->exec($queryInsert);
   // NOTE:: error messages WILL be sent back to JQUERY success function .....

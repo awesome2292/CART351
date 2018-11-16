@@ -11,14 +11,25 @@
 
 <style>
 body{
-  margin:0;
+  margin:0px;
   padding:0;
+  font-family: helvetica;
 }
 canvas
 {
   background:black;
   margin:0;
   padding:0;
+}
+fieldset{
+    display: block;
+    margin: auto;
+    border: none;
+}
+label{
+  display: block;
+  float: center;
+  margin: auto;
 }
 </style>
 </head>
@@ -29,7 +40,7 @@ canvas
   <!--form done using more current tags... -->
   <form id="userForm" action="">
   <!-- group the related elements in a form -->
-  <h3> LOGIN :::</h3>
+  <h3> Login</h3>
   <fieldset>
   <p><label>Username:</label><input type = "text" size="10" maxlength = "15"  name = "u_name" value = "" required></p>
   <p class = "sub"><input type = "submit" name = "submit" value = "login" id ="buttonS" /></p>
