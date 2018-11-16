@@ -40,14 +40,18 @@ while($row = $result->fetchArray(SQLITE3_NUM))
     die("Cannot execute statement.");
     exit;
     }
+
+
     //send back success...
-    echo("insertion complete");
-    exit;
+    echo("insertion complete"); //COMMENT OUT
+    exit; //COMMENT OUT
 
   }
-  echo("already taken");
+  echo("already taken");//COMMENT OUT
 
 }
+// DO QUERY NUMBER 2 :: GET ALL USERS
+
  exit;
 }//POST
 ?>
