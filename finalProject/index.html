@@ -66,7 +66,11 @@ h3 {
 
 
   <script>
+      let start =false;
+      let userName = "";
   $(document).ready (function(){
+
+
       $("#userForm").submit(function(event) {
          //stop submit the form, we will post it manually. PREVENT THE DEFAULT behaviour ...
       event.preventDefault();
@@ -84,6 +88,11 @@ h3 {
               timeout: 600000,
               success: function (response) {
               console.log(response);
+            let parsedJSON = JSON.parse(response);
+            userArray = parsedJSON;
+            console.log(parsedJSON);
+            userName = $("#userInput").val();
+            start =true;
              },
              error:function(){
             console.log("error occurred");
@@ -91,15 +100,15 @@ h3 {
         });
      });
   });
-  function myFunction() {
-    if(document.getElementById("userInput") != ""){
-      var x = document.getElementById("myForm");
-      if (x.style.display === "none") {
-          x.style.display = "block";
-      } else {
-          x.style.display = "none";
-      }
-    }
+  // function myFunction() {
+  //   if(document.getElementById("userInput") != ""){
+  //     var x = document.getElementById("myForm");
+  //     if (x.style.display === "none") {
+  //         x.style.display = "block";
+  //     } else {
+  //         x.style.display = "none";
+  //     }
+  //   }
 
   }
   </script>
@@ -114,7 +123,7 @@ h3 {
   <h3> Login</h3>
   <fieldset>
   <label>Username:</label><input type="text" maxlength="15"  name="u_name" id="userInput" value="" required/>
-  <input type="submit" name="submit" value="login" id="buttonS" class="btn" onclick="myFunction()"/>
+  <input type="submit" name="submit" value="login" id="buttonS" class="btn"/>
    </fieldset>
   </form>
   </div>
