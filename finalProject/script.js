@@ -6,11 +6,11 @@ var userAmount;
 
 function setup(){
   createCanvas(widthClient,heightClient);
-    background(230);
-    fill(0);
+    background(0);
+    fill(255);
 }
 function draw(){
-  centernode = ellipse(window.innerWidth/2, window.innerHeight/2,50,50);
+  centernode = ellipse(window.innerWidth/2, window.innerHeight/2,20,20,255);
   nodes[0] = centernode;
 
 function createNode(){
