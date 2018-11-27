@@ -89,7 +89,7 @@ h3 {
               success: function (response) {
               console.log(response);
             let parsedJSON = JSON.parse(response);
-            userArray = parsedJSON;
+            users = parsedJSON;
             console.log(parsedJSON);
             userName = $("#userInput").val();
             start =true;
@@ -110,7 +110,6 @@ h3 {
   //     }
   //   }
 
-  }
   </script>
 </head>
 

@@ -1,15 +1,26 @@
 widthClient = window.innerWidth;
 heightClient = window.innerHeight;
-var nodes = [1]
-var users = [];
-var userArray = [];
+var nodes = []
+var users = ['yasmine', 'cat', 'sabine'];
+var assoc = [];
 
 function setup(){
   createCanvas(widthClient,heightClient);
     background(230);
     fill(0);
-      let centernode = new Node(window.innerWidth/2, window.innerHeight/2,50,50);
-      nodes[0] = centernode;
+    let moreUsersThanNodes = true;
+      //let centernode = new Node(window.innerWidth/2, window.innerHeight/2,50,50);
+      for(var i=0; i<users.length; i++) {
+        if(users.length>nodes.length){
+          moreUsersThanNodes = false;
+          console.log(moreUsersThanNodes);
+          createNode();
+          console.log(nodes[i]);
+        assoc[users[i]] = nodes[i];
+      }
+      }
+      console.log(assoc);
+
 }
 function draw(){
   if(start ===true){
@@ -17,15 +28,19 @@ function draw(){
   //console.log(userName);
   // var testX = random(100, widthClient-100);
   // var testY = random(100, heightClient-100);
-nodes[0].display();
+  let centernode = new Node(window.innerWidth/2, window.innerHeight/2,50,50);
+  centernode.display();
+  for(var i=0; i<nodes.length; i++) {
+nodes[i].display();
+}
 
 }
 
 }
 
 function createNode(){
-  for(var i = 0; i < userAmount; i++){
-  nodes[i].push(ellipse(random(100, widthClient-100),random(100,heightClient-100),ellipseSize,ellipseSize));
+  for(var i = 0; i < users; i++){
+  nodes[i].push(new Node(random(100, widthClient-100),random(100,heightClient-100),ellipseSize));
 }
 }
 
