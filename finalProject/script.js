@@ -3,7 +3,6 @@ heightClient = window.innerHeight;
 var nodes = []
 var users = ['yasmine', 'cat', 'sabine'];
 var assoc = [];
-var start = false;
 
 function setup(){
   createCanvas(widthClient,heightClient);
