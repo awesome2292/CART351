@@ -23,8 +23,11 @@ function setup(){
 
 }
 function draw(){
+  //let testNode = ellipse(window.innerWidth/2, window.innerHeight/2,50,50);
+  //console.log(testNode);
+
   if(start ===true){
-    background(0);
+  background(0);
   //console.log(userName);
   // var testX = random(100, widthClient-100);
   // var testY = random(100, heightClient-100);
