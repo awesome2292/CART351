@@ -3,11 +3,12 @@ heightClient = window.innerHeight;
 var nodes = []
 var users = ['yasmine', 'cat', 'sabine'];
 var assoc = [];
+var start = false;
 
 function setup(){
   createCanvas(widthClient,heightClient);
-    background(230);
-    fill(0);
+    background(0);
+    fill(255);
     let moreUsersThanNodes = true;
       //let centernode = new Node(window.innerWidth/2, window.innerHeight/2,50,50);
       for(var i=0; i<users.length; i++) {
@@ -24,7 +25,7 @@ function setup(){
 }
 function draw(){
   if(start ===true){
-    background(230);
+    background(0);
   //console.log(userName);
   // var testX = random(100, widthClient-100);
   // var testY = random(100, heightClient-100);
@@ -40,6 +41,7 @@ nodes[i].display();
 
 function createNode(){
   for(var i = 0; i < users; i++){
+    var ellipseSize = 20;
   nodes[i].push(new Node(random(100, widthClient-100),random(100,heightClient-100),ellipseSize));
 }
 }
