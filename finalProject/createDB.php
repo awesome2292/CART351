@@ -12,7 +12,7 @@ try
 {
    $db = new MyDB();
    echo ("Opened or created data base successfully<br \>");
-   $theQuery = 'CREATE TABLE userInfo (smID INTEGER PRIMARY KEY NOT NULL, username TEXT, name TEXT, favColor TEXT)';
+   $theQuery = 'CREATE TABLE userInfo (smID INTEGER PRIMARY KEY NOT NULL, username TEXT, xCoord INTEGER, yCoord INTEGER, name TEXT, favColor TEXT)';
    $ok = $db ->exec($theQuery);
 	// make sure the query executed
 	if (!$ok)
