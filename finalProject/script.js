@@ -5,6 +5,7 @@ var users = [];
 var assoc = [];
 var xCoord = [];
 var yCoord = [];
+var currentUser;
 
 var displayNodes = false;
 
@@ -13,7 +14,6 @@ var ellipseSize = 20;
 function setup(){
   var nodeCanvas = createCanvas(window.innerWidth,window.innerHeight);
     background(0);
-    fill(255);
   // for (var i = 0; i < users.length; i++) {
   //   createNode();
   // }
@@ -40,6 +40,7 @@ function draw(){
   }
 
   if(displayNodes ==true){
+    currentUser.display();
     for(var i=0; i<nodes.length; i++) {
     nodes[i].display();
   }
@@ -49,19 +50,28 @@ function draw(){
 }
 
 function createNode(){
+
   for(var i = 0; i < users.length; i++){
-    nodes.push(new Node(users[i].xCoord,users[i].yCoord,ellipseSize,users[i].username));
+    if(users[i].username === userName){
+      currentUser = new Node(users[i].xCoord,users[i].yCoord,ellipseSize,users[i].username, color(255,0,0));
+      console.log("The current user is " + users[i].username);
+    }
+    else{
+    nodes.push(new Node(users[i].xCoord,users[i].yCoord,ellipseSize,users[i].username, color(255)));
+  }
   }
 }
 
-function Node(x,y,r,user){
+function Node(x,y,r,user,clr){
   this.x = x;
   this.y = y;
   this.r =r;
   this.user = user;
+  this.clr = clr;
   console.log(this.user);
 
   this.display = function(){
+    fill(this.clr);
     ellipse(this.x, this.y,this.r,this.r);
   }
 
