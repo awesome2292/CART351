@@ -9,7 +9,7 @@ var yCoord = [];
 var displayNodes = false;
 
 function setup(){
-  createCanvas(widthClient,heightClient);
+  createCanvas(window.innerWidth,window.innerHeight);
     background(0);
     fill(255);
   // for (var i = 0; i < users.length; i++) {
@@ -49,7 +49,7 @@ function draw(){
 function createNode(){
   for(var i = 0; i < users.length; i++){
     var ellipseSize = 20;
-    nodes.push(new Node(random(100,widthClient-100),random(100,heightClient-100),ellipseSize,users[i].username));
+    nodes.push(new Node(users[i].xCoord,users[i].yCoord,ellipseSize,users[i].username));
   }
 }
 

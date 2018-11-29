@@ -89,10 +89,12 @@ h3 {
               success: function (response) {
               console.log(response);
             let parsedJSON = JSON.parse(response);
+            console.log(parsedJSON);
             users = parsedJSON;
           //  console.log("users = " + users);
             userName = $("#userInput").val();
             start =true;
+            $('.formContainer').remove();
              },
              error:function(){
             console.log("error occurred");
@@ -100,7 +102,7 @@ h3 {
         });
      });
   });
-  
+
 
   </script>
 </head>
