@@ -8,8 +8,10 @@ var yCoord = [];
 
 var displayNodes = false;
 
+var ellipseSize = 20;
+
 function setup(){
-  createCanvas(window.innerWidth,window.innerHeight);
+  var nodeCanvas = createCanvas(window.innerWidth,window.innerHeight);
     background(0);
     fill(255);
   // for (var i = 0; i < users.length; i++) {
@@ -48,7 +50,6 @@ function draw(){
 
 function createNode(){
   for(var i = 0; i < users.length; i++){
-    var ellipseSize = 20;
     nodes.push(new Node(users[i].xCoord,users[i].yCoord,ellipseSize,users[i].username));
   }
 }
@@ -63,4 +64,25 @@ function Node(x,y,r,user){
   this.display = function(){
     ellipse(this.x, this.y,this.r,this.r);
   }
+
+  this.clickNode = function(){
+      if(Math.sqrt(Math.pow(this.x-mouseX,2)+Math.pow(this.y-mouseY,2)) < this.r){
+         console.log("This node is clicked");
+
+         }
+       }
+
+
+}
+
+function mousePressed(){
+  for(var i = 0; i < nodes.length; i++){
+    nodes[i].clickNode();
+  }
+}
+
+
+
+function drawLine(){
+
 }
