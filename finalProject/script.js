@@ -34,10 +34,12 @@ function draw(){
     displayNodes =true;
   }
 
+  background(0);
   if(displayNodes ==true){
     currentUser.display();
     for(var i=0; i<nodes.length; i++) {
     nodes[i].display();
+    nodes[i].hoverNode();
   }
   }
 
@@ -101,11 +103,6 @@ function Node(x,y,r,user,clr,clicks,clicked){
         fill(255);
         textSize(18);
         text(user, this.x - 30, this.y - 20);
-
-      }
-      else{
-        fill(255,0,0);
-        text("This is test text that should fucking disappear pls.", 50, 50);
       }
     }
 }
