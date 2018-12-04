@@ -5,6 +5,7 @@ var users = [];
 var assoc = [];
 var xCoord = [];
 var yCoord = [];
+var hoverTexts = [];
 var currentUser;
 var currentUserX;
 var currentUserY;
@@ -21,26 +22,13 @@ var ellipseSize = 20;
 function setup(){
   var nodeCanvas = createCanvas(window.innerWidth,window.innerHeight);
     background(0);
-  // for (var i = 0; i < users.length; i++) {
-  //   createNode();
-  // }
+
+    //window.location.href="index.php?numClicks=0";
 
 }
 function draw(){
-  //let testNode = ellipse(window.innerWidth/2, window.innerHeight/2,50,50);
-  // console.log(nodes.length);
-
-  if(start ===true){
+  if(start){
   background(0);
-  //console.log(userName);
-  // var testX = random(100, widthClient-100);
-  // var testY = random(100, heightClient-100);
-
-  // let centernode = new Node(window.innerWidth/2, window.innerHeight/2,50,50);
-  // centernode.display();
-    for(var i=0; i<nodes.length; i++) {
-    nodes[i].display();
-    }
     createNode();
     start=false;
     displayNodes =true;
@@ -51,7 +39,6 @@ function draw(){
     for(var i=0; i<nodes.length; i++) {
     nodes[i].display();
   }
-
   }
 
 }
@@ -81,6 +68,7 @@ function Node(x,y,r,user,clr,clicks,clicked){
   this.clr = clr;
   this.clicks = clicks;
   this.clicked = clicked;
+  var mouseHover = false;
   console.log(this.user);
 
   this.display = function(strkWeight){
@@ -92,7 +80,6 @@ function Node(x,y,r,user,clr,clicks,clicked){
     stroke(255);
     strokeWeight(this.strkWeight);
     line(currentUserX, currentUserY, this.x, this.y);
-    //nodeClicked = false;
     }
   }
 
@@ -109,12 +96,18 @@ function Node(x,y,r,user,clr,clicks,clicked){
          }
        }
 
-  // this.drawLine = function(){
-  //   fill(this.clr);
-  //   connectionLine = line(currentUserX, currentUserY, this.x, this.y);
-  // }
+    this.hoverNode = function(){
+      if(Math.sqrt(Math.pow(this.x-mouseX,2)+Math.pow(this.y-mouseY,2)) < this.r){
+        fill(255);
+        textSize(18);
+        text(user, this.x - 30, this.y - 20);
 
-
+      }
+      else{
+        fill(255,0,0);
+        text("This is test text that should fucking disappear pls.", 50, 50);
+      }
+    }
 }
 
 function mousePressed(){

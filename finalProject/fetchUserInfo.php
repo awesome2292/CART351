@@ -22,6 +22,8 @@ if($_SERVER['REQUEST_METHOD'] == 'POST')
 $uname= $_POST['u_name'];
 $xval = rand(300, 1400);
 $yval = rand(200, 600);
+$clicks = $_GET["numClicks"]; //puts the uid variable into $somevar;
+echo $clicks;
 $sql_select="SELECT COUNT(username) FROM userInfo WHERE username = '$uname'";
 
 $result = $db->query($sql_select);
