@@ -76,6 +76,7 @@ function Node(x,y,r,user,clr,clicks,clicked){
   this.display = function(strkWeight){
     this.strokeWeight = strkWeight;
     fill(this.clr);
+    noStroke();
     ellipse(this.x, this.y,this.r,this.r);
     if(this.clicked){
     this.strkWeight +=1;
@@ -92,7 +93,9 @@ function Node(x,y,r,user,clr,clicks,clicked){
          this.clicked = true;
          this.clicks+=1;
          console.log(this.clicks);
+         if(this.r<85){
          this.r=this.r*(this.clicks/100+1);
+       }
          console.log(this.r);
 
          }
@@ -101,8 +104,9 @@ function Node(x,y,r,user,clr,clicks,clicked){
     this.hoverNode = function(){
       if(Math.sqrt(Math.pow(this.x-mouseX,2)+Math.pow(this.y-mouseY,2)) < this.r){
         fill(255);
+        noStroke();
         textSize(18);
-        text(user, this.x - 30, this.y - 20);
+        text(user, this.x - 30, this.y - (this.r));
       }
     }
 }
