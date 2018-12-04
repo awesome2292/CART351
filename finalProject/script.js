@@ -10,10 +10,11 @@ var currentUser;
 var currentUserX;
 var currentUserY;
 var currentUserR;
-var connectionLine;
+var connectionLines=[];
 var nodeClicked = false;
 var numClicks = 0;
 var nodeColor;
+
 
 var displayNodes = false;
 
@@ -91,6 +92,9 @@ function draw(){
     displayNodes =true;
   }
   if(displayNodes ==true){
+    //  for(let i =0;i<connectionLines.length;i++){
+    //   console.log(connectionLines[i]);
+    // }
     currentUser.display();
     for(var i=0; i<nodes.length; i++) {
     nodes[i].display();
@@ -146,6 +150,13 @@ function Node(x,y,r,user,clr,clicks,clicked){
       if(Math.sqrt(Math.pow(this.x-mouseX,2)+Math.pow(this.y-mouseY,2)) < this.r){
          console.log("This node is clicked");
          this.clicked = true;
+         // add to array::
+         let conn ={
+           "NodeA_x":currentUserX,
+            "NodeA_y":currentUserY,
+            "NodeB_x":this.x,
+             "NodeB_y":this.y};
+         connectionLines.push(conn);
          this.clicks+=1;
          console.log(this.clicks);
          if(this.r<85){
@@ -171,3 +182,32 @@ function mousePressed(){
     nodes[i].clickNode();
   }
 }
+// var btn = document.getElementById('buttonId');
+
+
+function SaveJSON(){
+  $.ajax
+  ({
+    type:'POST',
+    url:'saveToJSON.php',
+    data: { data: JSON.stringify(connectionLines)},
+    success: function(response)
+    {console.log(response)},
+    failure: function(response)
+    {console.log(response)}
+  });
+};
+
+function LoadJSON(){
+  $.getJSON('connections.json',function(data) {
+       //success
+         //step 1: console.log the result
+         console.log(data);
+         loaded=true;
+})
+
+}
+
+// btn.addEventListener("click", function(){
+//   SaveJSON();
+// });
