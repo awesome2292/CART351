@@ -5,6 +5,7 @@ var users = [];
 var assoc = [];
 var xCoord = [];
 var yCoord = [];
+var hoverTexts = [];
 var currentUser;
 var currentUserX;
 var currentUserY;
@@ -21,37 +22,25 @@ var ellipseSize = 20;
 function setup(){
   var nodeCanvas = createCanvas(window.innerWidth,window.innerHeight);
     background(0);
-  // for (var i = 0; i < users.length; i++) {
-  //   createNode();
-  // }
+
+    //window.location.href="index.php?numClicks=0";
 
 }
 function draw(){
-  //let testNode = ellipse(window.innerWidth/2, window.innerHeight/2,50,50);
-  // console.log(nodes.length);
-
-  if(start ===true){
+  if(start){
   background(0);
-  //console.log(userName);
-  // var testX = random(100, widthClient-100);
-  // var testY = random(100, heightClient-100);
-
-  // let centernode = new Node(window.innerWidth/2, window.innerHeight/2,50,50);
-  // centernode.display();
-    for(var i=0; i<nodes.length; i++) {
-    nodes[i].display();
-    }
     createNode();
     start=false;
     displayNodes =true;
   }
 
+  background(0);
   if(displayNodes ==true){
     currentUser.display();
     for(var i=0; i<nodes.length; i++) {
     nodes[i].display();
+    nodes[i].hoverNode();
   }
-
   }
 
 }
@@ -81,18 +70,19 @@ function Node(x,y,r,user,clr,clicks,clicked){
   this.clr = clr;
   this.clicks = clicks;
   this.clicked = clicked;
+  var mouseHover = false;
   console.log(this.user);
 
   this.display = function(strkWeight){
     this.strokeWeight = strkWeight;
     fill(this.clr);
+    noStroke();
     ellipse(this.x, this.y,this.r,this.r);
     if(this.clicked){
     this.strkWeight +=1;
     stroke(255);
     strokeWeight(this.strkWeight);
     line(currentUserX, currentUserY, this.x, this.y);
-    //nodeClicked = false;
     }
   }
 
@@ -103,18 +93,22 @@ function Node(x,y,r,user,clr,clicks,clicked){
          this.clicked = true;
          this.clicks+=1;
          console.log(this.clicks);
+         if(this.r<85){
          this.r=this.r*(this.clicks/100+1);
+       }
          console.log(this.r);
 
          }
        }
 
-  // this.drawLine = function(){
-  //   fill(this.clr);
-  //   connectionLine = line(currentUserX, currentUserY, this.x, this.y);
-  // }
-
-
+    this.hoverNode = function(){
+      if(Math.sqrt(Math.pow(this.x-mouseX,2)+Math.pow(this.y-mouseY,2)) < this.r){
+        fill(255);
+        noStroke();
+        textSize(18);
+        text(user, this.x - 30, this.y - (this.r));
+      }
+    }
 }
 
 function mousePressed(){
