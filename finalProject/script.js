@@ -6,6 +6,7 @@ var assoc = [];
 var xCoord = [];
 var yCoord = [];
 var hoverTexts = [];
+var lines = [];
 var currentUser;
 var currentUserX;
 var currentUserY;
@@ -14,6 +15,7 @@ var connectionLines=[];
 var nodeClicked = false;
 var numClicks = 0;
 var nodeColor;
+let conn;
 
 
 var displayNodes = false;
@@ -88,6 +90,7 @@ function draw(){
   if(start){
   background(0);
     createNode();
+    //createLines();
     start=false;
     displayNodes =true;
   }
@@ -100,6 +103,9 @@ function draw(){
     nodes[i].display();
     nodes[i].hoverNode();
   }
+//   for(var i=0; i<lines.length; i++) {
+//   lines[i].display();
+// }
   }
 
 }
@@ -121,6 +127,22 @@ function createNode(){
   }
 }
 
+// function createLines(){
+//  stroke(255);
+// //console.log("conn.NodeA_x = " + conn.NodeA_x);
+//  lines.push(new Line(random(0,100), random(0,100), random(0,300), random(0,300)));
+// }
+
+function Line(x1,y1,x2,y2){
+  this.x1 = x1;
+  this.y1 = y1;
+  this.x2 = x2;
+  this.y2 = y2;
+  this.display = function(){
+    line(this.x1, this.y1, this.y2, this.y2);
+  }
+}
+
 function Node(x,y,r,user,clr,clicks,clicked){
   this.x = x;
   this.y = y;
@@ -132,26 +154,21 @@ function Node(x,y,r,user,clr,clicks,clicked){
   var mouseHover = false;
   console.log(this.user);
 
-  this.display = function(strkWeight){
-    this.strokeWeight = strkWeight;
+  this.display = function(){
     fill(this.clr);
     noStroke();
     ellipse(this.x, this.y,this.r,this.r);
     if(this.clicked){
-    this.strkWeight +=1;
     stroke(255);
-    strokeWeight(this.strkWeight);
-    line(currentUserX, currentUserY, this.x, this.y);
+    line(currentUserX, currentUserY, this.x, this.y);}
     }
-  }
 
   this.clickNode = function(){
-
       if(Math.sqrt(Math.pow(this.x-mouseX,2)+Math.pow(this.y-mouseY,2)) < this.r){
-         console.log("This node is clicked");
+         //console.log("This node is clicked");
          this.clicked = true;
          // add to array::
-         let conn ={
+         conn ={
            "NodeA_x":currentUserX,
             "NodeA_y":currentUserY,
             "NodeB_x":this.x,
@@ -163,10 +180,8 @@ function Node(x,y,r,user,clr,clicks,clicked){
          this.r=this.r*(this.clicks/100+1);
        }
          console.log(this.r);
-
          }
        }
-
     this.hoverNode = function(){
       if(Math.sqrt(Math.pow(this.x-mouseX,2)+Math.pow(this.y-mouseY,2)) < this.r){
         fill(255);
@@ -177,13 +192,13 @@ function Node(x,y,r,user,clr,clicks,clicked){
     }
 }
 
+
+
 function mousePressed(){
   for(var i = 0; i < nodes.length; i++){
     nodes[i].clickNode();
   }
 }
-// var btn = document.getElementById('buttonId');
-
 
 function SaveJSON(){
   $.ajax
@@ -198,16 +213,36 @@ function SaveJSON(){
   });
 };
 
-function LoadJSON(){
-  $.getJSON('connections.json',function(data) {
-       //success
-         //step 1: console.log the result
-         console.log(data);
-         loaded=true;
-})
-
+function storeUser() {
+    return $.ajax({
+        type: "GET",
+        url: "connections.json",
+        dataType: "text"
+    });
 }
 
-// btn.addEventListener("click", function(){
-//   SaveJSON();
-// });
+if ( ! localStorage.getItem('conn') ) {
+    storeUser().done(function(json) {
+        conn = JSON.parse( json );
+        localStorage.setItem('conn', json);
+    });
+}else{
+    conn = JSON.parse( localStorage.getItem('conn') );
+        console.log(conn);
+}
+window.onload = function(){
+  storeUser();
+//  $.getJSON('connections.json', function(data) {
+    console.log("entered get");
+       //success
+         //step 1: console.log the result
+         // currentUserX = conn.NodeA_x;
+         // console.log("currentUserX = " + currentUserX);
+         // currentUserY = conn.NodeA_y;
+         // conn.NodeB_x = this.x;
+         // conn.NodeB_y = this.y;
+  //         })
+         // .fail(function() {
+         //   console.log( "error" );
+         // });
+};
