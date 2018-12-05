@@ -11,6 +11,8 @@ var currentUser;
 var currentUserX;
 var currentUserY;
 var currentUserR;
+var otherUserX;
+var otherUserY;
 var connectionLines=[];
 var nodeClicked = false;
 var numClicks = 0;
@@ -103,9 +105,9 @@ function draw(){
     nodes[i].display();
     nodes[i].hoverNode();
   }
-//   for(var i=0; i<lines.length; i++) {
-//   lines[i].display();
-// }
+  for(var i=0; i<lines.length; i++) {
+  lines[i].display();
+}
   }
 
 }
@@ -118,7 +120,6 @@ function createNode(){
       currentUserX = users[i].xCoord;
       currentUserY = users[i].yCoord;
       currentUser = new Node(currentUserX,currentUserY,ellipseSize,users[i].username, nodeColor, numClicks);
-      console.log("The current user is " + users[i].username);
     }
     else{
       nodeColor = color(255);
@@ -127,11 +128,10 @@ function createNode(){
   }
 }
 
-// function createLines(){
-//  stroke(255);
-// //console.log("conn.NodeA_x = " + conn.NodeA_x);
-//  lines.push(new Line(random(0,100), random(0,100), random(0,300), random(0,300)));
-// }
+function createLines(){
+ stroke(255);
+ lines.push(new Line(currentUserX, currentUserY, otherUserX, otherUserY));
+}
 
 function Line(x1,y1,x2,y2){
   this.x1 = x1;
@@ -160,12 +160,12 @@ function Node(x,y,r,user,clr,clicks,clicked){
     ellipse(this.x, this.y,this.r,this.r);
     if(this.clicked){
     stroke(255);
-    line(currentUserX, currentUserY, this.x, this.y);}
+    line(currentUserX, currentUserY, this.x, this.y);
+    //createLines();
     }
 
   this.clickNode = function(){
       if(Math.sqrt(Math.pow(this.x-mouseX,2)+Math.pow(this.y-mouseY,2)) < this.r){
-         //console.log("This node is clicked");
          this.clicked = true;
          // add to array::
          conn ={
@@ -191,7 +191,7 @@ function Node(x,y,r,user,clr,clicks,clicked){
       }
     }
 }
-
+}
 
 
 function mousePressed(){
@@ -211,6 +211,7 @@ function SaveJSON(){
     failure: function(response)
     {console.log(response)}
   });
+  location.reload();
 };
 
 function storeUser() {
@@ -228,21 +229,25 @@ if ( ! localStorage.getItem('conn') ) {
     });
 }else{
     conn = JSON.parse( localStorage.getItem('conn') );
-        console.log(conn);
+        // console.log(conn);
 }
 window.onload = function(){
   storeUser();
-//  $.getJSON('connections.json', function(data) {
-    console.log("entered get");
+ $.getJSON('connections.json', function(data) {
+    //console.log("entered get");
        //success
          //step 1: console.log the result
-         // currentUserX = conn.NodeA_x;
-         // console.log("currentUserX = " + currentUserX);
-         // currentUserY = conn.NodeA_y;
-         // conn.NodeB_x = this.x;
-         // conn.NodeB_y = this.y;
-  //         })
-         // .fail(function() {
-         //   console.log( "error" );
-         // });
+         console.log("test:: "+data.length);
+         for(let i=0; i<data.length;i++){
+          // console.log(data[i]);
+          currentUserX = data[i].NodeA_x;
+          console.log("currentUserX = " + currentUserX);
+          currentUserY = data[i].NodeA_y;
+          otherUserX =data[i].NodeB_x;
+          otherUserY =data[i].NodeB_y;
+         }
+          })
+         .fail(function() {
+           console.log( "error" );
+         });
 };
