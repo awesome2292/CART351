@@ -163,7 +163,7 @@ function Node(x,y,r,user,clr,clicks,clicked){
     line(currentUserX, currentUserY, this.x, this.y);
     //createLines();
     }
-
+}
   this.clickNode = function(){
       if(Math.sqrt(Math.pow(this.x-mouseX,2)+Math.pow(this.y-mouseY,2)) < this.r){
          this.clicked = true;
@@ -191,7 +191,7 @@ function Node(x,y,r,user,clr,clicks,clicked){
       }
     }
 }
-}
+
 
 
 function mousePressed(){
